@@ -10,15 +10,16 @@ package com.videoclub.model;
  * @author FABAME
  */
 public class Pelicula {
-
-    private String nombre;
+private String nombre;
     private String director;
     private int anio;
+    private String imagen;
 
     public Pelicula() {
         this.nombre = "";
         this.director = "";
         this.anio = 0;
+        this.imagen = "";
     }
 
     public Pelicula(String nombre, String director) {
@@ -33,14 +34,36 @@ public class Pelicula {
         this.anio = anio;
     }
 
+    public Pelicula(String nombre, String director, String imagen) {
+        this.nombre = nombre;
+        this.director = director;
+        this.anio = 0;
+        this.imagen = imagen;
+    }
+
+    public Pelicula(String nombre, String director, int anio, String imagen) {
+        this.nombre = nombre;
+        this.director = director;
+        this.anio = anio;
+        this.imagen = imagen;
+    }
+
     public Pelicula(Pelicula pelicula) {
         this.nombre = pelicula.getNombre();
         this.director = pelicula.getDirector();
         this.anio = pelicula.getAnio();
+
     }
 
     public String getInformacion() {
-        return this.nombre + " (" + this.anio + "). Dirigida por: " + this.director + ".";
+        String img = "<img width='100' src='imagenes/../'" + this.imagen + "\" />";
+        img = "";
+        return img + this.nombre + " (Dirigida por " + this.director + ") [" + this.anio + "]";
+    }
+
+    @Override
+    public String toString() {
+        return "Pelicula{" + "nombre=" + nombre + ", director=" + director + ", anio=" + anio + ", imagen=" + imagen + '}';
     }
 
     public String getNombre() {
@@ -65,6 +88,14 @@ public class Pelicula {
 
     public void setAnio(int anio) {
         this.anio = anio;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
 }
